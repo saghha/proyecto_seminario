@@ -1,0 +1,27 @@
+# depslib dependency file v1.0
+1578871721 source:c:\users\saghha\documents\universidad\black_jack\src\baraja.cpp
+	"Baraja.h"
+	<iostream>
+
+1578796857 c:\users\saghha\documents\universidad\black_jack\include\baraja.h
+	"definicion.h"
+
+1578870783 c:\users\saghha\documents\universidad\black_jack\include\definicion.h
+	<string>
+	<cstdlib>
+	<vector>
+	<sstream>
+
+1578874736 source:c:\users\saghha\documents\universidad\black_jack\main.cpp
+	<iostream>
+	"Baraja.h"
+	"Jugador.h"
+	<sstream>
+
+1578875062 source:c:\users\saghha\documents\universidad\black_jack\src\jugador.cpp
+	"Jugador.h"
+
+1578875192 c:\users\saghha\documents\universidad\black_jack\include\jugador.h
+	"definicion.h"
+	<iostream>
+

@@ -9,6 +9,7 @@ vector<Baraja> barajas;
 vector<def_carta>puntos;
 vector<carta>mesa;
 int num_barajas;
+Jugador player = Jugador(1000);
 
 void crearCartas();
 carta sacarCarta();
@@ -25,7 +26,7 @@ int main()
 void crearCartas(){
     carta x,y;
     int seguir_jugando = 1;
-    Jugador player = Jugador(1000);
+
     int apuesta = 0, def_apuesta;
     Baraja a = Baraja();
     string opcion;
@@ -69,6 +70,9 @@ void crearCartas(){
                     if(player.contarPuntos() == 21){
                         cout<<"Empatados"<<endl;
                         player.sumarGanancia(apuesta);
+                    }
+                    else if(player.contarPuntos() < contarPuntosMesa()){
+                        cout<<"Perdiste"<<endl;
                     }
                     else{
                         cout<<"Perdiste"<<endl;
@@ -132,15 +136,27 @@ int contarPuntosMesa(){
 int llenarMesa(){
     carta a;
     int puntos;
+    int condFinal = 1;
 
     puntos = contarPuntosMesa();
-    while(contarPuntosMesa() < 21){
+    while(condFinal){
         a = sacarCarta();
         mesa.push_back(a);
         mostarMesa();
+        if(contarPuntosMesa() < 21){
+            if(contarPuntosMesa() > player.contarPuntos()){
+                condFinal = 0;
+            }
+        }
+        else{
+            condFinal = 0;
+        }
     }
     if(contarPuntosMesa() == 21){
         cout<<"puntos de mesa "<<contarPuntosMesa()<<endl;
+        return 1;
+    }
+    else if(contarPuntosMesa() < 21){
         return 1;
     }
     else{
